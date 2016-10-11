@@ -10,9 +10,10 @@ reducer: (currentState, action) => nextState
 
 Store:
     include createStore in 3 different ways:
-        1. const {createStore} = Redux; //es6
-        2. var createStore = Redux.createStore; //js
-        3. import {createStore} from Redux // babel
+    
+    1. const {createStore} = Redux; //es6
+    2. var createStore = Redux.createStore; //js
+    3. import {createStore} from Redux // babel
 
     create a store:
         const store = createStore(counter); // has to specify a reducer. In the simple_counter example, it is counter.
@@ -141,5 +142,9 @@ Provider:
         );
 Problems:
     1. pass too many props to intermedia component. For example, filterLink needs visiblityFilter. it need to pass the pros to the tree (TodoApp -> Footer -> FilterLink)
-        solve: create a container component(FilterLink become Link and create a new container component FilterLink) and get data from store.
-               small problem: The parent component doesn't update but the store updated. we need to force to update the component. there is no such problem for the current app because every re-render the whole app when the store is changed.
+    
+    solve: 
+    create a container component(FilterLink become Link and create a new container component FilterLink) and get data from store.
+    
+    small problem: The parent component doesn't update but the store updated. we need to force to update the component.
+    There is no such problem for the current app because every re-render the whole app when the store is changed.
